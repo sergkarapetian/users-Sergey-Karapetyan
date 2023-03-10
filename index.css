@@ -89,27 +89,10 @@
   border-radius: 5px;
 }
 
-.likedUsersDiv {
-  display: none;
-  width: 40%;
-  height: 100vh;
-  background-color: red;
-  position: absolute;
-  top: 50px;
-  right: 0px;
-  z-index: 1;
-}
-.likedUsers {
-  width: 100%;
-  background-color: red;
-  display: none;
-}
-
 .addedUsersDiv {
   display: none;
   width: 40%;
   height: 100vh;
-  background-color: red;
   position: absolute;
   top: 50px;
   right: 0px;
@@ -119,10 +102,21 @@
   display: none;
   width: 97%;
   height: 90%;
-  background-color: blue;
+  background-color: #504190;
   position: absolute;
   top: 10px;
   right: 0px;
+}
+.addedUsers div {
+  padding: 2px;
+  color: white;
+}
+.addedUsers button {
+  color: white;
+  background-color: #7666bf;
+  width: 50px;
+  padding: 2px;
+  border: 0;
 }
 
 .not-added {
