@@ -5,8 +5,6 @@ const section = document.querySelector(".section");
 
 const rightDiv = document.querySelector(".rightDiv");
 
-const likedUsersDiv = document.querySelector(".likedUsersDiv");
-const likedUsers = document.querySelector(".likedUsers");
 const likedMembersBtn = document.querySelector(".likedMembers");
 
 const addedUsersDiv = document.querySelector(".addedUsersDiv");
@@ -116,19 +114,6 @@ fetch(API_URL)
         userCard.classList.toggle("liked");
       });
 
-      // liked users
-      likedMembersBtn.addEventListener("click", () => {
-        body.classList.add("bluredBody");
-        rightDiv.classList.add("block");
-        section.appendChild(likedUsersDiv);
-        // likedUsers.classList.add("block");
-        if (userCard.classList.contains("liked")) {
-          likedUsers.appendChild(userCard);
-        }
-        // userCard.removeChild(likeDiv)
-        // userCard.removeChild(addUserDiv)
-      });
-
       //add user, remove user
       addUser.addEventListener("click", () => {
         addUser.classList.toggle("not-added");
@@ -137,15 +122,14 @@ fetch(API_URL)
 
       //added users
       addedMembersBtn.addEventListener("click", () => {
-        const newUs = userCard;
         addedUsersDiv.classList.add("block");
         body.classList.add("bluredBody");
         rightDiv.classList.add("block");
-        
+
         addedUsers.classList.add("block");
         section.appendChild(addedUsersDiv);
         if (userCard.classList.contains("added")) {
-          moreInfo.appendChild(newUs);
+          moreInfo.appendChild(userCard);
           moreInfo.appendChild(btnDiv);
           moreInfo.appendChild(removeUserDiv);
           addedUsers.appendChild(moreInfo);
@@ -154,9 +138,10 @@ fetch(API_URL)
 
       // right div
       rightDiv.addEventListener("click", () => {
-        addedUsersDiv.classList.contains("block")
-          ? addedUsersDiv.classList.remove("block")
-          : likedUsersDiv.classList.remove("block");
+        if (addedUsersDiv.classList.contains("block")) {
+          addedUsersDiv.classList.remove("block");
+        }
+
         body.classList.remove("bluredBody");
         rightDiv.classList.remove("block");
       });
@@ -164,12 +149,6 @@ fetch(API_URL)
       //remove added user
       removeUser.addEventListener("click", () => {
         userCard.classList.remove("added");
-      });
-
-      // close likes div
-      likedUsersDiv.addEventListener("click", () => {
-        likedUsersDiv.classList.remove("block");
-        likedUsersList.classList.remove("block");
       });
     });
   });
